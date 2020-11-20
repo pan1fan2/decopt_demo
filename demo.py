@@ -2,23 +2,25 @@
 # date: 2020-01-15
 
 """This script prints out docopt args.
-Usage: docopt.py <arg1> --arg2=<arg2> [--arg3=<arg3>] [--arg4=<arg4>]
+Usage: docopt.py <arg1> --arg2=<arg2> [--arg3=<arg3>] [<arg4>]
 
 Options:
 <arg>             Takes any value (this is a required positional argument)
 --arg2=<arg2>     Takes any value (this is a required option)
 [--arg3=<arg3>]   Takes any value (this is an optional option)
-[--arg4=<arg4>]   Takes any value (this is an optional option)
+[<arg4>]   Takes any value (this is an optional positional argument)
 """
 
 from docopt import docopt
+
 opt = docopt(__doc__)
 
-def main(var1,var2,var3 = None ,var4 = None):
-    print(opt['--arg4'])
+
+def main(var1, var2, var3=None, var4=None):
+    print(var4)
     print(opt)
     print(type(opt))
-   
-if __name__ == "__main__":
-    main(opt['<arg1>'],opt['--arg2'],opt['--arg3'],opt['--arg4'])
 
+
+if __name__ == "__main__":
+    main(opt["<arg1>"], opt["--arg2"], opt["--arg3"], opt["<arg4>"])
