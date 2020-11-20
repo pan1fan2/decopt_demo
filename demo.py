@@ -13,6 +13,12 @@ Options:
 
 from docopt import docopt
 opt = docopt(__doc__)
-print(opt['--arg4'])
-print(opt)
-print(type(opt))
+
+def main(var1,var2,var3 = None ,var4 = None):
+    print(opt['--arg4'])
+    print(opt)
+    print(type(opt))
+   
+if __name__ == "__main__":
+    main(opt['<arg1>'],opt['--arg2'],opt['--arg3'],opt['--arg4'])
+
